@@ -1023,7 +1023,6 @@ box-shadow: none;
       if (val != "") {
         chatSocket.send(JSON.stringify({
         'message': val,
-        'username': '{{user}}',
         'type': 'text'
       }));
       document.querySelector("#comment").value = ""
@@ -1031,13 +1030,11 @@ box-shadow: none;
     };
     $(".app-one").click(function () {
       chatSocket.send(JSON.stringify({
-        'username': '{{user}}',
         'type': 'read'
       }));
     })
     setTimeout(() => {
       chatSocket.send(JSON.stringify({
-        'username': '{{user}}',
         'type': 'read'
       }));
     }, 100);
