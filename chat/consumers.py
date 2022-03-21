@@ -23,7 +23,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
         room_name = self.scope['url_route']['kwargs']['room_name']
         text_data_json = json.loads(text_data)
         typee = text_data_json['type']
-        username = text_data_json['username']
+        username = self.scope["user"].username
         if typee == "text":
             message = text_data_json['message']
             await self.channel_layer.group_send(
